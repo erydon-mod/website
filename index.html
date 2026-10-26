@@ -8,17 +8,21 @@
   <title>Opening ERYDON</title>
   <script>
     (() => {
-      const destination = new URL("https://erydon-v1-6.oliesharp.chatgpt.site/");
-      destination.pathname = ["/index.html", "/docs/index.html"].includes(window.location.pathname)
-        ? "/" : window.location.pathname;
-      destination.search = window.location.search;
-      destination.hash = window.location.hash;
+      const incoming = new URL(window.location.href);
+      const marker = "_erydon_www";
+      const returning = incoming.searchParams.get(marker) === "20261026";
+      const destination = new URL(returning
+        ? "https://erydon-v1-6.oliesharp.chatgpt.site/"
+        : "https://www.erydon.co.uk/");
+      destination.pathname = ["/index.html", "/docs/index.html"].includes(incoming.pathname)
+        ? "/" : incoming.pathname;
+      destination.search = incoming.search;
+      destination.hash = incoming.hash;
+      if (returning) destination.searchParams.delete(marker);
+      else destination.searchParams.set(marker, "20261026");
       window.location.replace(destination.href);
     })();
   </script>
-  <noscript>
-    <meta http-equiv="refresh" content="0; url=https://erydon-v1-6.oliesharp.chatgpt.site/">
-  </noscript>
   <style>
     html { color-scheme: dark; background: #080808; color: #f5f0e5; font: 1rem/1.6 system-ui, sans-serif; }
     body { min-height: 90vh; margin: 0; padding: 1.5rem; display: grid; place-items: center; text-align: center; }
@@ -31,7 +35,8 @@
   <main>
     <h1>ERYDON</h1>
     <p>Opening the website.</p>
-    <a href="https://erydon-v1-6.oliesharp.chatgpt.site/">Continue to the website</a>
+    <a href="https://www.erydon.co.uk/?_erydon_www=20261026">Continue to the website</a>
+    <noscript><p>If this returns here, <a href="https://erydon-v1-6.oliesharp.chatgpt.site/">use the alternate address</a>.</p></noscript>
   </main>
 </body>
 </html>
