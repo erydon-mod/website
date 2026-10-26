@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Opening ERYDON</title>
+  <script>
+    (() => {
+      const destination = new URL("https://erydon-v1-6.oliesharp.chatgpt.site/");
+      destination.pathname = ["/index.html", "/docs/index.html"].includes(window.location.pathname)
+        ? "/" : window.location.pathname;
+      destination.search = window.location.search;
+      destination.hash = window.location.hash;
+      window.location.replace(destination.href);
+    })();
+  </script>
+  <noscript>
+    <meta http-equiv="refresh" content="0; url=https://erydon-v1-6.oliesharp.chatgpt.site/">
+  </noscript>
+  <style>
+    html { color-scheme: dark; background: #080808; color: #f5f0e5; font: 1rem/1.6 system-ui, sans-serif; }
+    body { min-height: 90vh; margin: 0; padding: 1.5rem; display: grid; place-items: center; text-align: center; }
+    h1 { font: 400 2rem/1.2 Georgia, serif; color: #c8a56a; }
+    a { color: #e1c692; text-underline-offset: .25em; }
+    a:focus-visible { outline: 2px solid #e1c692; outline-offset: 6px; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>ERYDON</h1>
+    <p>Opening the website.</p>
+    <a href="https://erydon-v1-6.oliesharp.chatgpt.site/">Continue to the website</a>
+  </main>
+</body>
+</html>
